@@ -3,6 +3,7 @@ package com.example.nickshevr.tmps_rss_lab5;
 import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import  com.example.nickshevr.tmps_rss_lab5.RssItem;
@@ -10,8 +11,9 @@ import  com.example.nickshevr.tmps_rss_lab5.ListListener;
 import  com.example.nickshevr.tmps_rss_lab5.RssReader;
 import java.util.List;
 import android.os.AsyncTask;
+import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class MainActivity extends Activity implements View.OnClickListener {
     /**
      * This method creates main application view
      */
@@ -39,19 +41,51 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         // Set view
         setContentView(R.layout.activity_main);
+        TextView PoliticsButton = (TextView) findViewById(R.id.Politics);
+        TextView SportButton = (TextView) findViewById(R.id.Sport);
+        TextView MusicButton = (TextView) findViewById(R.id.Music);
+
+        PoliticsButton.setOnClickListener(this);
+        SportButton.setOnClickListener(this);
+        MusicButton.setOnClickListener(this);
 
         final UrlsStorage urlsObject = new UrlsStorage();
 
         // Set reference to this activity
         local = this;
+    }
 
-        GetRSSDataTask task = new GetRSSDataTask();
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.Politics:
+                GetRSSDataTask task = new GetRSSDataTask();
 
-        // Start download RSS task
-        task.execute(urlsObject.getRssUrl());
+                // Start download RSS task
+                task.execute("http://news.yandex.ru/politics.rss");
 
-        // Debug the thread name
-        Log.d("Thread", Thread.currentThread().getName());
+                // Debug the thread name
+                Log.d("Thread", Thread.currentThread().getName());
+                break;
+            case R.id.Sport:
+                GetRSSDataTask task2 = new GetRSSDataTask();
+
+                // Start download RSS task
+                task2.execute("http://news.yandex.ru/sport.rss");
+
+                // Debug the thread name
+                Log.d("Thread", Thread.currentThread().getName());
+                break;
+            case R.id.Music:
+                GetRSSDataTask task3 = new GetRSSDataTask();
+
+                // Start download RSS task
+                task3.execute("http://news.yandex.ru/music.rss");
+
+                // Debug the thread name
+                Log.d("Thread", Thread.currentThread().getName());
+                break;
+        }
     }
 
     private class GetRSSDataTask extends AsyncTask<String, Void, List<RssItem> > {

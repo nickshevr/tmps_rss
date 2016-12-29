@@ -10,7 +10,7 @@
         android:text="Politics"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
+        android:id="@+id/Politics"
         android:textSize="24sp"
         android:layout_marginTop="35dp"
         android:layout_marginLeft="11dp"
@@ -23,10 +23,10 @@
         android:text="Music"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView4"
+        android:id="@+id/Music"
         android:textSize="24sp"
-        android:layout_alignBaseline="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3"
+        android:layout_alignBaseline="@+id/Sport"
+        android:layout_alignBottom="@+id/Sport"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_marginRight="17dp"
@@ -36,19 +36,18 @@
         android:text="Sport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView3"
+        android:id="@+id/Sport"
         android:textSize="24sp"
-        android:layout_alignBaseline="@+id/textView2"
-        android:layout_alignBottom="@+id/textView2"
+        android:layout_alignBaseline="@+id/Politics"
+        android:layout_alignBottom="@+id/Politics"
         android:layout_centerHorizontal="true" />
 
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:layout_marginTop="20dp"
-        android:layout_below="@+id/textView2"
+        android:layout_below="@+id/Politics"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/listMainView"
-        />
+        android:layout_height="500dp" />
 </RelativeLayout>
