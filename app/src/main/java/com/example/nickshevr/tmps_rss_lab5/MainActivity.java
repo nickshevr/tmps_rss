@@ -17,14 +17,30 @@ public class MainActivity extends Activity {
      */
     private MainActivity local;
 
-    /**
-     * This method creates main application view
-     */
+    public class UrlsStorage {
+
+        private String rssUrl;
+
+        public String getRssUrl() {
+            if (this.rssUrl.length() != 0) {
+                return this.rssUrl;
+            }
+
+            return "http://news.yandex.ru/politics.rss";
+        }
+
+        public void setRssUrl(String inputUrl) {
+           this.rssUrl = inputUrl;
+        }
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Set view
         setContentView(R.layout.activity_main);
+
+        final UrlsStorage urlsObject = new UrlsStorage();
 
         // Set reference to this activity
         local = this;
@@ -32,7 +48,7 @@ public class MainActivity extends Activity {
         GetRSSDataTask task = new GetRSSDataTask();
 
         // Start download RSS task
-        task.execute("http://news.yandex.ru/politics.rss");
+        task.execute(urlsObject.getRssUrl());
 
         // Debug the thread name
         Log.d("Thread", Thread.currentThread().getName());
