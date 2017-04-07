@@ -5,23 +5,13 @@ import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
 import  com.example.nickshevr.tmps_rss_lab5.RssItem;
 
-/**
- * Class reads RSS data.
- * @author ITCuties
- */
 public class RssReader {
-    // Our class has an attribute which represents RSS Feed URL
     private String rssUrl;
-    /**
-     * We set this URL with the constructor
-     */
+    
     public RssReader(String rssUrl) {
         this.rssUrl = rssUrl;
     }
-    /**
-     * Get RSS items. This method will be called to get the parsing process result.
-     * @return
-     */
+
     public List<RssItem> getItems() throws Exception {
         // At first we need to get an SAX Parser Factory object
         SAXParserFactory factory = SAXParserFactory.newInstance();
