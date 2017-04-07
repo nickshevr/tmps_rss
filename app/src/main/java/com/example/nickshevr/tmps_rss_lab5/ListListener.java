@@ -8,10 +8,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import  com.example.nickshevr.tmps_rss_lab5.RssItem;
-/**
- * Class implements a list listener.
- * @author ITCuties
- */
+
 public class ListListener implements OnItemClickListener {
     // Our listener will contain a reference to the list of RSS Items
     // List item's reference
