@@ -1,11 +1,5 @@
 package com.example.nickshevr.tmps_rss_lab5;
 
-/**
- * This code encapsulates RSS item data.
- * Our application needs title and link data.
- *
- * @author ITCuties
- */
 public class RssItem {
     // item title
     private String title;
